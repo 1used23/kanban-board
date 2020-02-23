@@ -2,7 +2,7 @@ import React from "react";
 import "./Button.css";
 import { Button as ButtonUI } from "@material-ui/core";
 
-const Button = () => {
+const Button = ({text}) => {
   return (
     <ButtonUI
       className="button"
@@ -10,7 +10,7 @@ const Button = () => {
       color="primary"
       disableElevation
     >
-      Добавить карточку
+      {text}
     </ButtonUI>
   );
 };

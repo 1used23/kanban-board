@@ -4,7 +4,7 @@ import { Card, AddForm } from "../../components";
 
 import "./Panel.css";
 
-const Panel = ({ title, items }) => {
+const Panel = ({ title, cards, isNewPanel }) => {
   return (
     <div className="panel">
       {title && (
@@ -12,13 +12,15 @@ const Panel = ({ title, items }) => {
           {title}
         </Typography>
       )}
-      {items && (
+      {cards && (
         <div className="panel__items">
-          {items.length && items.map(card => <Card {...card} />)}
+          {cards.map((card, index) => {
+            return <Card key={index} card={card} />;
+          })}
         </div>
       )}
 
-      <AddForm />
+      <AddForm isNewPanel={isNewPanel} />
     </div>
   );
 };

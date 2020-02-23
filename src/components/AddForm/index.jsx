@@ -2,10 +2,10 @@ import React, { Fragment, useState, useRef, useEffect } from "react";
 import AddOutlinedIcon from "@material-ui/icons/AddOutlined";
 import CloseOutlinedIcon from "@material-ui/icons/CloseOutlined";
 import "./AddForm.css";
-import { Button } from "../../components";
+import { Button } from "..";
 import { InputBase, Paper, IconButton } from "@material-ui/core";
 
-const AddForm = () => {
+const AddForm = ({ isNewPanel }) => {
   const [showForm, setShowForm] = useState(false);
   const inputRef = useRef(null);
   useEffect(() => {
@@ -21,12 +21,18 @@ const AddForm = () => {
               <InputBase
                 fullWidth
                 multiline
-                placeholder="Введите название карточки"
+                placeholder={
+                  isNewPanel
+                    ? "Введите название колонки"
+                    : "Введите название карточки"
+                }
                 inputRef={inputRef}
               />
             </Paper>
             <div className="button-wrap">
-              <Button />
+              <Button
+                text={isNewPanel ? "Добавить колонку" : "Добавить карточку"}
+              />
               <IconButton
                 onClick={() => {
                   setShowForm(!showForm);
@@ -46,7 +52,11 @@ const AddForm = () => {
           }}
         >
           <AddOutlinedIcon />
-          <span>Добавить еще одну карточку</span>
+          <span>
+            {isNewPanel
+              ? "Добавить еще одну колонку"
+              : "Добавить еще одну карточку"}
+          </span>
         </div>
       )}
     </Fragment>

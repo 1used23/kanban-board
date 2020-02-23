@@ -22,5 +22,3 @@ if (module.hot) {
     render(NextApp);
   });
 }
-
-ReactDOM.render(<App />, document.getElementById("root"));
