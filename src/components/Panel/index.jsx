@@ -4,7 +4,14 @@ import { Card, AddForm } from "../../components";
 
 import "./Panel.css";
 
-const Panel = ({ title, cards, isNewPanel }) => {
+const Panel = ({
+  title,
+  cards,
+  isNewPanel,
+  onAddPanel,
+  onAddCard,
+  panelIndex
+}) => {
   return (
     <div className="panel">
       {title && (
@@ -20,7 +27,12 @@ const Panel = ({ title, cards, isNewPanel }) => {
         </div>
       )}
 
-      <AddForm isNewPanel={isNewPanel} />
+      <AddForm
+        isNewPanel={isNewPanel}
+        onAddPanel={onAddPanel}
+        onAddCard={onAddCard}
+        panelIndex={panelIndex}
+      />
     </div>
   );
 };

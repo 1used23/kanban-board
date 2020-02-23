@@ -25,23 +25,21 @@ const initialState = [
 export default (state = initialState, action) => {
   switch (action.type) {
     case "CARDS:ADD":
-      return {
-        ...state,
-        items: state.items.map((item, index) => {
-          if (action.payload.index === index) {
+      return state.map((item, index) => {
+        if (action.payload.panelIndex === index) {
+          if (item.cards) {
             return {
               ...item,
               cards: [...item.cards, action.payload.text]
             };
           }
-          return item;
-        })
-      };
-    case "PANELS:ADD":
-      return {
-        ...state,
-        items: action.payload
-      };
+        }
+        return item;
+      });
+
+    case "PANEL:ADD":
+      return [...state, { title: action.payload, cards: [] }];
+
     default:
       return state;
   }
