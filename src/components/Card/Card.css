@@ -1,5 +1,8 @@
 .card {
   padding: 12px;
-  margin-bottom: 8px;
   word-break: break-word;
+}
+
+.card-board {
+  margin-bottom: 8px;
 }

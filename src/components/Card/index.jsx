@@ -11,7 +11,7 @@ const Card = ({ card, panelIndex, cardIndex }) => {
     >
       {(provided, snapshot) => (
         <div
-          className="card1"
+          className="card-board"
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
