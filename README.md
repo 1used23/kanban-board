@@ -2,7 +2,7 @@ Live Demo: https://1used23.github.io/kanban-board/
 # Kanban Board
 
 ## What You Can Do
-### `Create boards`
+## `Create boards`
 ### `Create tasks`
 ### `Move your tasks between boards`
 
