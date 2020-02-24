@@ -1,12 +1,27 @@
 import React from "react";
 import { Paper } from "@material-ui/core";
 import "./Card.css";
+import { Draggable } from "react-beautiful-dnd";
 
-const Card = ({ card }) => {
+const Card = ({ card, panelIndex, cardIndex }) => {
   return (
-    <Paper elevation={3} className="card">
-      {card}
-    </Paper>
+    <Draggable
+      draggableId={`card-${panelIndex}-${cardIndex}`}
+      index={cardIndex}
+    >
+      {(provided, snapshot) => (
+        <div
+          className="card1"
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+        >
+          <Paper elevation={3} className="card">
+            {card}
+          </Paper>
+        </div>
+      )}
+    </Draggable>
   );
 };
 

@@ -6,12 +6,11 @@ export default {
       text
     }
   }),
-  reorderCards: ({ panelIndex, sourceIndex, destinationIndex }) => ({
+  reorderCards: ({ source, destination }) => ({
     type: "CARDS:REORDER",
     payload: {
-      panelIndex,
-      sourceIndex,
-      destinationIndex
+      source,
+      destination
     }
   })
 };

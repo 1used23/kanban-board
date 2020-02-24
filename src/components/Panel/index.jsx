@@ -22,49 +22,21 @@ const Panel = ({
         </Typography>
       )}
       {cards && (
-        <DragDropContext
-          onDragEnd={result => {
-            onReorderCards({
-              panelIndex,
-              sourceIndex: result.source.index,
-              destinationIndex: result.destination.index
-            });
-            console.log(
-              "from: ",
-              result.source.index,
-              "to: ",
-              result.destination.index
-            );
-          }}
-        >
-          <Droppable droppableId="droppable">
-            {(provided, snapshot) => (
-              <div
-                ref={provided.innerRef}
-                //style={getListStyle(snapshot.isDraggingOver)}
-              >
-                {cards.map((card, index) => (
-                  <Draggable
-                    key={index}
-                    draggableId={`card-${index}`}
-                    index={index}
-                  >
-                    {(provided, snapshot) => (
-                      <div
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                      >
-                        <Card key={index} card={card} />
-                      </div>
-                    )}
-                  </Draggable>
-                ))}
-                {provided.placeholder}
-              </div>
-            )}
-          </Droppable>
-        </DragDropContext>
+        <Droppable type="CARDS" droppableId={`column-${panelIndex}`}>
+          {provided => (
+            <div {...provided.droppableProps} ref={provided.innerRef}>
+              {cards.map((card, index) => (
+                <Card
+                  key={index}
+                  card={card}
+                  panelIndex={panelIndex}
+                  cardIndex={index}
+                />
+              ))}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
       )}
 
       <AddForm
