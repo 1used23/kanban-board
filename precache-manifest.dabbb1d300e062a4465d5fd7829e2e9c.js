@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fcad32e048769a546685d59b4e95b6e9",
+    "revision": "288d591875147f97f0691c6d0613d054",
     "url": "/kanban-board/index.html"
   },
   {
-    "revision": "358e306c3b5fed26fd69",
-    "url": "/kanban-board/static/css/main.a483c2af.chunk.css"
+    "revision": "6ed6e65b9abca1db99c8",
+    "url": "/kanban-board/static/css/main.47a49e16.chunk.css"
   },
   {
     "revision": "ddafa02ef06119c14f8e",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/kanban-board/static/js/2.c75dbf1d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "358e306c3b5fed26fd69",
+    "revision": "6ed6e65b9abca1db99c8",
     "url": "/kanban-board/static/js/main.abaffb69.chunk.js"
   },
   {
