@@ -4,11 +4,9 @@ import "./Card.css";
 
 const Card = ({ card }) => {
   return (
-    <div>
-      <Paper elevation={3} className="card">
-        {card}
-      </Paper>
-    </div>
+    <Paper elevation={3} className="card">
+      {card}
+    </Paper>
   );
 };
 
