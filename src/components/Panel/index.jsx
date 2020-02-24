@@ -11,27 +11,9 @@ const Panel = ({
   isNewPanel,
   onAddPanel,
   onAddCard,
-  panelIndex
+  panelIndex,
+  onReorderCards
 }) => {
-  const move = (arr, old_index, new_index) => {
-    if (cards) {
-      while (old_index < 0) {
-        old_index += arr.length;
-      }
-      while (new_index < 0) {
-        new_index += arr.length;
-      }
-      if (new_index >= arr.length) {
-        let k = new_index - arr.length;
-        while (k-- + 1) {
-          arr.push(undefined);
-        }
-      }
-      arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
-      return arr;
-    }
-  };
-
   return (
     <div className="panel">
       {title && (
@@ -42,7 +24,11 @@ const Panel = ({
       {cards && (
         <DragDropContext
           onDragEnd={result => {
-            move(cards, result.source.index, result.destination.index);
+            onReorderCards({
+              panelIndex,
+              sourceIndex: result.source.index,
+              destinationIndex: result.destination.index
+            });
             console.log(
               "from: ",
               result.source.index,

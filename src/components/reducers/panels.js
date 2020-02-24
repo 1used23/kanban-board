@@ -37,6 +37,15 @@ export default (state = initialState, action) => {
         return item;
       });
 
+    case "CARDS:REORDER":
+      return state.map((item, index) => {
+        if (action.payload.panelIndex === index) {
+          const [removed] = item.cards.splice(action.payload.sourceIndex, 1);
+          item.cards.splice(action.payload.destinationIndex, 0, removed);
+        }
+        return item;
+      });
+
     case "PANEL:ADD":
       return [...state, { title: action.payload, cards: [] }];
 

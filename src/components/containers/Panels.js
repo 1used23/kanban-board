@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import panelsActions from "../../actions/panels";
 import cardsActions from "../../actions/cards";
 
-const Panels = ({ items, addPanel, addCard }) => (
+const Panels = ({ items, addPanel, addCard, reorderCards }) => (
   <Fragment>
     {items.map((item, index) => (
       <Panel
@@ -12,6 +12,7 @@ const Panels = ({ items, addPanel, addCard }) => (
         panelIndex={index}
         onAddPanel={addPanel}
         onAddCard={addCard}
+        onReorderCards={reorderCards}
         {...item}
       />
     ))}

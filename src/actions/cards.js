@@ -5,5 +5,13 @@ export default {
       panelIndex,
       text
     }
+  }),
+  reorderCards: ({ panelIndex, sourceIndex, destinationIndex }) => ({
+    type: "CARDS:REORDER",
+    payload: {
+      panelIndex,
+      sourceIndex,
+      destinationIndex
+    }
   })
 };
