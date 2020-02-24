@@ -21,3 +21,11 @@
 .panel__bottom-add-btn {
   padding-top: 12px;
 }
+
+@media screen and (max-width: 768px) {
+  .panel {
+    width: 100%;
+    margin-bottom: 25px;
+    margin-right: 0;
+  }
+}
